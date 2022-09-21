@@ -8,11 +8,13 @@ function getFact() {
 	let card_title = document.querySelector(".card-title");
 	let card_text = document.querySelector(".card-text");
 
-	fetch(`http://numbersapi.com/${input}/year`)
-	.then((response) => response.text())
-	.then((data) => {
-		card_title.innerHTML = input;
-		card_text.innerHTML = data;
-	});
+	if(input.length !== 0) {
+		fetch(`http://numbersapi.com/${input}/year`)
+		.then((response) => response.text())
+		.then((data) => {
+			card_title.innerHTML = input;
+			card_text.innerHTML = data;
+		});
+	}
 
 }
